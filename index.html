@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, target-densitydpi=medium-dpi" />
+<title>Life &amp; Time</title>
+<link rel="stylesheet" href="./css/style.css" />
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<script type="text/javascript" src="./js/masonry.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".btnAbout").click(function(){
+			if($(this).hasClass("on")){ closeAbout(); }
+			else{ openAbout(); }
+		});
+
+		function openAbout(){
+			$(".btnAbout").addClass("on");
+			$("#header").animate({left: "-300px"});
+			$("#container").animate({left: "-300px"});
+			$(".boxAbout").show().animate({right: 0});
+		}
+		function closeAbout(){
+			$(".btnAbout").removeClass("on");
+			$("#header").animate({left: 0});
+			$("#container").animate({left: 0});
+			$(".boxAbout").animate({right: "-300px"}, function(){	$(this).hide(); });
+		}
+
+		$(".boxCon").each(function(){
+			$(this).append("<div class='shadow'></div>");
+			$(this).find(".shadow").append("<a href='#' class='btnDetail'>Detail</a>");
+		});
+		$(".btnDetail").each(function(index){
+			$(this).attr("rel", "popLayer"+index);
+		});
+		$(".boxPopup").each(function(index){
+			$(this).attr("id", "popLayer"+index);
+		});
+		$(".btnDetail").click(function(e){
+			e.preventDefault();
+			$(".boxLayer").fadeIn(500);
+			var popOpen = $(this).attr("rel");
+			$("#"+popOpen).fadeIn(500, function(){
+				$(this).find(".btnClose").animate({top: "5px"}, 300);
+				$(this).find(".boxSub").addClass("active");
+			});
+			$("html, body").css("overflow", "hidden");
+		});
+		$(".boxPopup .btnClose").click(function(e){
+			e.preventDefault();
+			$(".boxLayer").hide();
+			$(this).animate({top: "-60px"}, 300);
+			$(this).parent().find(".boxSub").animate({bottom: "-300px"}, 500, function(){
+				$(this).parent().fadeOut(500);	
+			});
+			$("html, body").css("overflow", "visible");
+		});
+	});
+</script>
+
+</head>
+<body>
+
+<header id="header">
+	<h1>LIFE &amp; TIME</h1>
+	<a href="#" class="btnAbout">About</a>
+</header>
+
+<aside class="boxAbout">
+	<h2>ABOUT</h2>
+	<section class="inner">
+		<ul class="listAbout">
+			<li>Kim Sun Gyum</li>
+			<li>Web Publisher</li>
+			<li><a href="mailto:sungyum@naver.com">sungyum@naver.com</a></li>
+		</ul>
+	</section>
+</aside>
+
+<section id="container">
+	<div class="masonry js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
+		<div class="grid-sizer"></div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img01.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img02.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img03.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img01.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img02.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img03.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img01.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img02.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img03.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img01.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img02.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img03.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img01.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img02.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+		<div class="item">
+			<section class="boxCon">
+				<img src="./images/img03.jpg" />
+				<div class="text">
+					<h2>Title</h2>
+					<p>Category</p>
+				</div>
+			</section>
+		</div>
+	</div>
+</section>
+
+<section class="boxLayer">
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img02.jpg" /></li>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+
+	<article class="boxPopup">
+		<a href="#" class="btnClose">Close</a>
+		<ul>
+			<li><img src="./images/img03.jpg" /></li>
+			<li><img src="./images/img01.jpg" /></li>
+			<li><img src="./images/img02.jpg" /></li>
+		</ul>
+		<div class="boxSub">
+			<h2>Title</h2>
+			<p>Category</p>
+			<a href="#">URL</a>
+		</div>
+	</article>
+</section>
+
+<script type="text/javascript">
+$(function(){
+	$('#container').masonry({
+		itemSelector: '.item'
+	});
+});
+</script>
+
+</body>
+</html>
